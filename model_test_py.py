@@ -101,7 +101,7 @@ def retrieve_relevant_chunk(query, embed_model, chunk_embeddings, document_chunk
 
 # Function to generate a response using the Mistral model, focusing on using only the dataset's context
 def generate_response(query, context, max_tokens=100):
-    # Revised prompt based on user instruction
+    # Prompt based on user instruction
     prompt = (
         f"You are a helpful assistant. You will use the provided context to answer user questions. "
         f"Read the given context before answering the question and think step by step. "
@@ -120,10 +120,10 @@ def generate_response(query, context, max_tokens=100):
         inputs['input_ids'],
         max_new_tokens=max_tokens,
         do_sample=True,
-        top_p=0.9,  # Reduce the sampling diversity to focus more on accuracy
-        temperature=0.7,  # Keep randomness to some extent to generate natural responses
-        pad_token_id=tokenizer.eos_token_id,  # Ensure appropriate ending
-        repetition_penalty=1.3  # Penalize repetitions to avoid repeated text
+        top_p=0.9,  
+        temperature=0.7,  
+        pad_token_id=tokenizer.eos_token_id,  
+        repetition_penalty=1.3  
     )
 
     # Decode the generated response
@@ -160,6 +160,7 @@ if __name__ == "__main__":
 
         # Display only the generated response, not the context
         print(f"\nGenerated response:\n{generated_response}\n")
+        
 
 """**EVALUATION MATRIX**
 
