@@ -17,7 +17,8 @@ Original file is located at
 # print(greet("World"))
 #
 
-!python app.py
+import os
+os.system("python app.py")
 
 !ls
 
